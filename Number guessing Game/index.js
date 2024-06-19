@@ -1,14 +1,12 @@
 let randomNumber = parseInt(Math.random() * 100 + 1);
-console.log(randomNumber);
+// console.log(randomNumber);
 const submit = document.querySelector("#subt");
 const userInput = document.querySelector("#guessNumber");
 const guessSlot = document.querySelector(".guesses");
 const remaining = document.querySelector(".lastGuesses");
 const loeOrHi = document.querySelector(".lowOrHi");
 const startOver = document.querySelector(".resultParas");
-
 const p = document.createElement("p");
-
 let preveGuess = [];
 let numGuess = 1;
 let playGame = true;
@@ -57,9 +55,9 @@ function checkGuess(guess) {
 function displayGuess(guess) {
   // update value on the input
   userInput.value = "";
-  guessSlot.innerHTML += `${guess}, `;
+  guessSlot.innerHTML = `${preveGuess} `;
   numGuess++;
-  remaining.innerHTML = `${11 - numGuess}`;
+  remaining.innerHTML = `${10 - numGuess}`;
 }
 
 function displayMessage(message) {
@@ -87,7 +85,7 @@ function newGame() {
     remaining.innerHTML = `${11 - numGuess}`;
     userInput.removeAttribute("disabled");
     startOver.removeChild(p);
-    displayMessage('')
+    displayMessage("");
     playGame = true;
   });
 }
